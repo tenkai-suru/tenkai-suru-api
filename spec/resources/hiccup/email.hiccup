@@ -1,0 +1,5 @@
+<html><body>
+Hey, {{name}}!
+
+Your url to sign up is <a href="{{url}}">here</a>.
+</body></html>

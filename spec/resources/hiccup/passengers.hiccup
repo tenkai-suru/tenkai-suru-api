@@ -1,0 +1,4 @@
+Hi
+{{#passengers}}
+{{> hiccup/passenger.hiccup}}
+{{/passengers}}

@@ -1,1 +1,1 @@
-web: lein with-profile dev trampoline run $PORT
+web: lein with-profile $PROFILE trampoline run $PORT

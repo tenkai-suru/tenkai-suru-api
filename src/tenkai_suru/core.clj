@@ -2,14 +2,17 @@
   (:require
     [tenkai-suru.utility.render :refer [render-hiccup render-markdown]]
     [tenkai-suru.utility.middleware.log :refer [log-error log-request-and-response]]
-    [compojure.core  :refer [defroutes GET]]
+    [tenkai-suru.v1.base-controller :refer [v1-handler]]
+    [compojure.core  :refer [defroutes routes context GET]]
     [compojure.route :refer [not-found]]
     [ring.middleware.resource :refer [wrap-resource]]))
+
 
 (defroutes application-routes
   (GET "/" request {:status 200
                     :headers {}
                     :body (render-hiccup "layout" {:page-content (render-markdown "overview")})})
+  (context "/v1" [] v1-handler)
   (not-found "Page Not Found"))
 
 (def base-handler

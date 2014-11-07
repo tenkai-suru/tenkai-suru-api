@@ -5,6 +5,7 @@
     [clj-stacktrace.core :refer [parse-exception]]
     [clojure.walk :as w]))
 
+
 (def request-count (atom 0))
 (def line-separator (System/getProperty "line.separator"))
 

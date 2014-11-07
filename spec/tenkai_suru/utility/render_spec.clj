@@ -5,6 +5,7 @@
     [speclj.core :refer :all]
     [stencil.core :refer [render-file]]))
 
+
 (def render-file-args (atom nil))
 
 (defn rendered-map []

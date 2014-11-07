@@ -6,6 +6,7 @@
     [stencil.core                 :as stencil]
     [stencil.loader]))
 
+
 (defn clear-template-cache []
   (stencil.loader/set-cache (clojure.core.cache/ttl-cache-factory {} :ttl 0)))
 

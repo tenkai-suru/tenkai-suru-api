@@ -5,6 +5,11 @@
 
 
 (describe "environment"
+  (around [it]
+    (let [original-env @-env]
+      (it)
+      (reset! -env original-env)))
+
   (it "defaults to the 'unconfigured' environment"
     (should= :unconfigured @-env))
 

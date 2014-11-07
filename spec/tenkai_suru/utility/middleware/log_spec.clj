@@ -4,6 +4,7 @@
     [tenkai-suru.utility.middleware.log :refer :all]
     [speclj.core :refer :all]))
 
+
 (describe "logs any exceptions the app didn't catch"
   (it "returns a 500 on unhandled exceptions"
     (log/config-logger! {:filename "log/test-garbage.log" :to-standard-out? false})

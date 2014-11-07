@@ -2,6 +2,7 @@
   (:require
     [taoensso.timbre :as timbre]))
 
+
 (defn info [message]
   (timbre/info message))
 

@@ -11,7 +11,8 @@
                  [ring/ring-devel "1.2.0"]
                  [ring/ring-jetty-adapter "1.2.0"]
                  [stencil "0.3.4"]]
-  :profiles {:test {:dependencies [[speclj "3.0.2"]]
+  :profiles {:test {:dependencies [[ring-mock "0.1.3"]
+                                   [speclj "3.1.0"]]
                     :plugins [[speclj "3.0.2"]]
                     :resource-paths ["spec/resources" "resources"]}
              :dev {:main tenkai-suru.dev-main}

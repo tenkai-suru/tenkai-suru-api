@@ -2,8 +2,8 @@
   (:require
     [tenkai-suru.utility.render :refer [render-hiccup render-markdown]]
     [tenkai-suru.utility.middleware.log :refer [log-error log-request-and-response]]
-    [tenkai-suru.v1.base-controller :refer [v1-handler]]
-    [compojure.core  :refer [defroutes routes context GET]]
+    [tenkai-suru.v1.routes :refer [v1-handler]]
+    [compojure.core :refer [defroutes routes context GET]]
     [compojure.route :refer [not-found]]
     [ring.middleware.resource :refer [wrap-resource]]))
 

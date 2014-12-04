@@ -1,4 +1,5 @@
-(ns tenkai-suru.dev-main
+(ns tenkai-suru.main.development
+  (:gen-class)
   (:require
     [tenkai-suru.core :refer [base-handler]]
     [tenkai-suru.utility.environment :refer [-env]]

@@ -10,10 +10,17 @@ Install [Leiningen 2](https://github.com/technomancy/leiningen) if you already h
 lein run
 ```
 
+-OR-
+
+```bash
+lein uberjar
+java -jar target/tenkai-suru-api-0.1.0-standalone.jar
+```
+
+When running the project you can set the CONFIG_HOME environment variable to tell the project to read configuration files from a different directory.
+
 You can run the tests with the following command:
 
 ```bash
-lein spec
+lein spec -a
 ```
-
-If you add a ```-a``` flag, the tests will auto-run on file saves.

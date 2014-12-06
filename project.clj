@@ -8,6 +8,8 @@
                  [compojure "1.1.5"]
                  [markdown-clj "0.9.47"]
                  [org.clojure/java.jdbc "0.3.6"]
+                 [postgresql "9.1-901.jdbc4"]
+                 [ragtime/ragtime.core "0.3.7"]
                  [ragtime/ragtime.sql.files "0.3.7"]
                  [ring/ring-anti-forgery "1.0.0"]
                  [ring/ring-devel "1.2.0"]
@@ -29,6 +31,7 @@
              :production {:aot [tenkai-suru.main.production]
                           :main tenkai-suru.main.production}}
 
-  :test-paths ["spec"]
-  :aliases {"spec" ["with-profile" "test" "spec"]}
+  :aliases {"spec"    ["with-profile" "test" "spec"]
+            "migrate" ["run" "-m" "tenkai-suru.database.migrate"]}
+
   :min-lein-version "2.0.0")

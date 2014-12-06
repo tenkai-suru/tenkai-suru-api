@@ -10,7 +10,7 @@
               :subname     "mem"})
 
 (describe "database.core"
-  (let [migrations-directory "spec/migrations"
+  (let [migrations-directory "spec/support/migrations"
         migrations (migrations migrations-directory)]
 
     (context "migrations"

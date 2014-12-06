@@ -7,12 +7,15 @@
                  [com.taoensso/timbre "3.2.1"]
                  [compojure "1.1.5"]
                  [markdown-clj "0.9.47"]
+                 [org.clojure/java.jdbc "0.3.6"]
+                 [ragtime/ragtime.sql.files "0.3.7"]
                  [ring/ring-anti-forgery "1.0.0"]
                  [ring/ring-devel "1.2.0"]
                  [ring/ring-jetty-adapter "1.2.0"]
                  [stencil "0.3.4"]]
 
-  :profiles {:test {:dependencies [[ring-mock "0.1.3"]
+  :profiles {:test {:dependencies [[com.h2database/h2 "1.3.170"]
+                                   [ring-mock "0.1.3"]
                                    [speclj "3.1.0"]]
                     :plugins [[speclj "3.1.0"]]
                     :resource-paths ["spec/resources" "resources"]}

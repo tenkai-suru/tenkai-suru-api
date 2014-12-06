@@ -1,6 +1,7 @@
 (ns tenkai-suru.utility.log
   (:require
-    [taoensso.timbre :as timbre]))
+    [taoensso.timbre :as timbre]
+    [taoensso.timbre.appenders.rotor :refer [rotor-appender]]))
 
 
 (defn info [message]
@@ -13,7 +14,7 @@
   (timbre/fatal message))
 
 (defn config-logger! [{:keys [filename to-standard-out?]}]
-  (timbre/set-config! [:appenders :spit :enabled?] true)
-  (timbre/set-config! [:appenders :standard-out :enabled?] to-standard-out?)
-  (timbre/set-config! [:shared-appender-config :spit-filename] filename))
-
+  (let [megabytes #(* % 1048576)]
+    (timbre/set-config! [:appenders :rotor] rotor-appender)
+    (timbre/set-config! [:appenders :standard-out :enabled?] to-standard-out?)
+    (timbre/set-config! [:shared-appender-config :rotor] {:path filename :max-size (megabytes 10) :backlog 5})))

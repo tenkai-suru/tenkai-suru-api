@@ -18,4 +18,4 @@
     (if-let [database-uri (database-connection-uri (keyword environment))]
       (migrate-all database-uri (migrations "migrations"))
       (println ":database-uri not found for the given environment:" environment))
-    (println "You must pass in the environment you wish to migrate. Example: lein migrate dev")))
+    (println "You must pass in the environment you wish to migrate. Example: lein migrate development")))

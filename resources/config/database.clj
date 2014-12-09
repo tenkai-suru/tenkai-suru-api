@@ -1,1 +1,1 @@
- {:dev {:database-uri "jdbc:postgresql://localhost:5432/tenkai-suru-api-dev"}}
+ {:development {:database-uri "jdbc:postgresql://localhost:5432/tenkai-suru-api-dev"}}

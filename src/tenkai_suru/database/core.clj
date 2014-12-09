@@ -1,13 +1,7 @@
 (ns tenkai-suru.database.core
   (:require
-    [ragtime.core      :as rag]
-    [ragtime.sql.files :as sql]))
+    [tenkai-suru.utility.config :refer [reader]]))
 
 
-(defn migrate-all [connection-uri migrations]
-  (rag/migrate-all
-    (rag/connection connection-uri)
-    migrations))
-
-(defn migrations [migrations-dir]
-  (sql/migrations migrations-dir))
+(defn database-connection-uri [environment]
+  (-> (reader "database") environment :database-uri))

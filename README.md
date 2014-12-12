@@ -1,5 +1,7 @@
 # Tenkai Suru API
 
+[![Build Status](https://travis-ci.org/tenkai-suru/tenkai-suru-api.svg)](https://travis-ci.org/tenkai-suru/tenkai-suru-api)
+
 API that enables deployments of any kind
 
 ## Set Up

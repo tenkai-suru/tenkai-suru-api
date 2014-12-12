@@ -14,7 +14,7 @@
 
   :profiles {:test {:dependencies [[ring-mock "0.1.3"]
                                    [speclj "3.1.0"]]
-                    :plugins [[speclj "3.0.2"]]
+                    :plugins [[speclj "3.1.0"]]
                     :resource-paths ["spec/resources" "resources"]}
 
              :development {:aot [tenkai-suru.main.development]

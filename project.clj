@@ -9,6 +9,7 @@
                  [environ "1.0.0"]
                  [markdown-clj "0.9.47"]
                  [org.clojure/java.jdbc "0.3.6"]
+                 [org.clojure/tools.namespace "0.2.7"]
                  [postgresql "9.1-901.jdbc4"]
                  [ragtime/ragtime.core "0.3.7"]
                  [ragtime/ragtime.sql.files "0.3.7"]
@@ -17,6 +18,7 @@
                  [ring/ring-jetty-adapter "1.2.0"]
                  [stencil "0.3.4"]]
   :plugins [[lein-environ "1.0.0"]]
+
   :profiles {:test {:dependencies [[com.h2database/h2 "1.3.170"]
                                    [ring-mock "0.1.3"]
                                    [speclj "3.1.0"]]
@@ -34,10 +36,11 @@
                        :env {:env :staging}}
 
              :production {:aot [tenkai-suru.main.production]
-                          :main tenkai-suru.main.production}
-                          :env {:env :production}}
+                          :main tenkai-suru.main.production
+                          :env {:env :production}}}
 
   :aliases {"spec"    ["with-profile" "test" "spec"]
+            "task"    ["run" "-m" "tenkai-suru.main.task"]
             "migrate" ["run" "-m" "tenkai-suru.database.migrate"]}
 
   :min-lein-version "2.0.0")

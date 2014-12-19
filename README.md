@@ -19,10 +19,40 @@ lein with-profile development uberjar
 java -jar target/tenkai-suru-api-0.1.0-standalone.jar
 ```
 
+Once it started, you can hit the server on port 4000. 
+
+```bash
+http://localhost:4000/
+```
+
 When running the project you can set the CONFIG_HOME environment variable to tell the project to read configuration files from a different directory.
 
+### Certificate
+If you have never setup lein before, you may get this error when you try to run the application
+
+```bash
+Could not transfer artifact xxxx from/to clojars (https://clojars.org/repo/): peer not authenticated
+```
+
+If you come across that problem, download the certificate. 
+
+```bash 
+echo -n | openssl s_client -connect clojars.org:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/clojars.cert
+```
+
+Then move the certificate to your Java certs. For Java 7/8
+
+```bash
+mv /tmp/clojars.cert /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/lib/security/
+```
+
+## Running Test
 You can run the tests with the following command:
 
+```bash
+lein spec
+```
+Or if you want to run the test automatically when a file is change, run spec with -a
 ```bash
 lein spec -a
 ```

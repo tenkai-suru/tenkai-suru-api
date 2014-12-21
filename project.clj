@@ -40,7 +40,6 @@
                           :env {:env :production}}}
 
   :aliases {"spec"    ["with-profile" "test" "spec"]
-            "task"    ["run" "-m" "tenkai-suru.main.task"]
-            "migrate" ["run" "-m" "tenkai-suru.database.migrate"]}
+            "task"    ["run" "-m" "tenkai-suru.main.task"]}
 
   :min-lein-version "2.0.0")

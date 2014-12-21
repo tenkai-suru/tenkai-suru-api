@@ -38,5 +38,5 @@
     (config-logger! {:to-standard-out? true :filename "task"})
     (if-let [environment (env :env)]
       (run-task task-name environment)
-      (error (str "You must pass in the environment you wish to run " task-name " in as a profile. Example: lein with-profile development task " task-name))))
+      (error (str "You must set a valid environment you wish to run '" task-name "' in using profiles. Example: 'lein with-profile development task " task-name"'"))))
   (shutdown-agents))

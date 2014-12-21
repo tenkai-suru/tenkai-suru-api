@@ -1,8 +1,8 @@
-(ns tenkai-suru.database.migrate-spec
+(ns tenkai-suru.database.migrations-spec
   (:require
-    [clojure.java.jdbc            :refer :all]
-    [speclj.core                  :refer :all]
-    [tenkai-suru.database.migrate :refer :all]))
+    [clojure.java.jdbc :refer :all]
+    [speclj.core :refer :all]
+    [tenkai-suru.database.migrations :refer :all]))
 
 
 (def db-spec {:subprotocol "h2"
@@ -23,4 +23,11 @@
         (migrate-all "jdbc:h2:mem" migrations)
         (let [tables         (map :table_name (query db-spec "SHOW TABLES;"))
               table-exists? #(boolean (some #{%} tables))]
-          (should= true (table-exists? "DUNDER_MIFFLIN_EMPLOYEES")))))))
+          (should= true (table-exists? "DUNDER_MIFFLIN_EMPLOYEES")))))
+
+    (context "rollback"
+      (it "rolls back the most recent migration in a given database"
+        (rollback "jdbc:h2:mem" (last migrations))
+        (let [tables         (map :table_name (query db-spec "SHOW TABLES;"))
+              table-exists? #(boolean (some #{%} tables))]
+          (should= false (table-exists? "DUNDER_MIFFLIN_EMPLOYEES")))))))

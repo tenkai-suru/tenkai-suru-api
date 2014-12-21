@@ -7,12 +7,12 @@
 
 
 (defn task-namespaces []
-  (namespace/find-ns-decls-in-dir
+  (namespace/find-namespaces-in-dir
     (clojure.java.io/file "src/tenkai_suru/tasks")))
 
 (defn find-in-tasks-dir [task-name]
   (first (filter
-    #(re-find (re-pattern task-name) (str (last %)))
+    #(re-find (re-pattern task-name) (str %))
     (task-namespaces))))
 
 (defn execute [task-namespace]
@@ -28,7 +28,7 @@
   (info (str "Finished " task-namespace " in " environment)))
 
 (defn run-task [task-name environment]
-  (let [[_ task-namespace] (find-in-tasks-dir task-name)]
+  (let [task-namespace (find-in-tasks-dir task-name)]
     (if (nil? task-namespace)
       (error (str "Could not find the 'tenkai-suru.tasks." task-name "' task"))
       (run-task-in task-namespace environment))))

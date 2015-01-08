@@ -6,8 +6,8 @@ set -o pipefail
 root="$(dirname $0)/.."
 timestamp=$(date +%Y%m%d%H%M%S)
 
-up=$root/migrations/$timestamp-$1.up.sql
-down=$root/migrations/$timestamp-$1.down.sql
+up=$root/resources/migrations/$timestamp-$1.up.sql
+down=$root/resources/migrations/$timestamp-$1.down.sql
 
 if [ ! -z $1 ]
 then

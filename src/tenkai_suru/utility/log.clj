@@ -17,4 +17,4 @@
   (let [megabytes #(* % 1048576)]
     (timbre/set-config! [:appenders :rotor] rotor-appender)
     (timbre/set-config! [:appenders :standard-out :enabled?] to-standard-out?)
-    (timbre/set-config! [:shared-appender-config :rotor] {:path filename :max-size (megabytes 10) :backlog 5})))
+    (timbre/set-config! [:shared-appender-config :rotor] {:path (str "log/" filename ".log") :max-size (megabytes 10) :backlog 5})))

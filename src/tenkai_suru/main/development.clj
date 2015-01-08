@@ -17,7 +17,7 @@
     wrap-reload))
 
 (defn -main [& args]
-  (config-logger! {:to-standard-out? true})
+  (config-logger! {:to-standard-out? true :filename "development"})
   (render/clear-template-cache)
   (reset! -env :dev)
 

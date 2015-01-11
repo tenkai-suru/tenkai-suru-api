@@ -11,7 +11,7 @@
 
 (describe "database.migrate"
   (let [migrations-directory "spec/support/migrations"
-        migrations (migrations migrations-directory)]
+        migrations (sql-migrations migrations-directory)]
 
     (context "migrations"
       (it "lists the migrations from the given migrations directory"

@@ -4,12 +4,12 @@
     [ragtime.sql.files :as sql]))
 
 
-(defn migrate-all [connection-uri migrations]
+(defn migrate-all [connection-uri resources-migrations]
   (rag/migrate-all
     (rag/connection connection-uri)
-    migrations))
+    resources-migrations))
 
-(defn migrations [migrations-dir]
+(defn sql-migrations [migrations-dir]
   (sql/migrations migrations-dir))
 
 (defn rollback [connection-uri migration]
